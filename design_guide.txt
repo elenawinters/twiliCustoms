@@ -1,0 +1,23 @@
+TwiliCustoms Design Document
+
+Engine Swap (V8, V10, W16, etc)
+Drivetrain Swap (FWD, RWD, AWD)
+Aspiration (Single or Twin Turbo, or Supercharger)
+Engine Updrades
+	Intake, Exhaust, Camshaft, Valves, Flywheel, Fuel System, Ignition, Displacement, Pistons/Compression, Twin Turbo, Intercooler, Oil/Cooling
+Platform Upgrades
+	Springs/Dampers, Antiroll Bars (Front/Back), Weight Reduction, Roll Cage
+Drivetrain Upgrades
+	Transmission, Driveline, Differential (?)
+Tires and Rims
+	Compound
+		Semi-Slick Race Tire Compound,
+		Slick Race Tire Compound,
+		Drift Tire Compound
+		Rally Tire Compound
+		Offroad Race Tire Compound
+		Snow Tire Compound
+		Drag Tire Compound
+	Tire Width (Front/Back)
+	Rim (Will need to be compatible with tire compound restrictions)
+	Rim Size (May not be always available)

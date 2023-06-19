@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-item {
+        height: 100px;
+        width: 100px;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="grid-item" onclick="onGridItemClick(this)"></div>
+      <div class="grid-item" onclick="onGridItemClick(this)"></div>
+      <div class="grid-item" onclick="onGridItemClick(this)"></div>
+      <!-- More grid items will be added here by the JavaScript code below -->
+    </div>
+  </body>
+  <script>
+    function onGridItemClick(element) {
+      // Clear the grid
+      const grid = document.querySelector(".grid");
+      grid.innerHTML = "";
+
+      // Fill the grid with new elements that belong to the clicked element
+      for (let i = 0; i < 10; i++) {
+        const newElement = document.createElement("div");
+        newElement.classList.add("grid-item");
+        newElement.innerHTML = "New element";
+        grid.appendChild(newElement);
+      }
+    }
+  </script>
+</html>
