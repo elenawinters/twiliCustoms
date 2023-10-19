@@ -2,6 +2,13 @@ RegisterCommand('mod', (source, args) => {
     const category = args[0];
     const feature = args[1];
     const vehicle = GetVehiclePedIsIn(PLAYER_PED());
+    if (category == 'reset') {
+        for (const [field, value] of Object.entries(defaultHandling[GetEntityArchetypeName(vehicle)])) {
+            SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, value)
+            console.log(`${field} has been reverted to ${value}`)
+        }
+        return;
+    }
     updateHandlingFields(vehicle, modifications[category][feature])
     // switch (category) {
     //     case 'engine':

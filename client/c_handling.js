@@ -18,7 +18,21 @@ function updateHandlingFields(vehicle, handlingCollection) {
     // console.log(handlingCollection)
     // handlingCollection.forEach((field, value) => {
     for (const [field, value] of Object.entries(handlingCollection)) {
-        SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, getDefaultHandling(vehicle, field) + value)
+        switch (value[0]) {
+            case 0:  // set
+                getDefaultHandling(vehicle, field)
+                SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, value[1])
+                break;
+            case 1:  // additive
+                SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, getDefaultHandling(vehicle, field) + value[1])
+                break;
+            case 2:  // multiplicative
+                SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, getDefaultHandling(vehicle, field) * value[1])
+                break;
+            case 3:  // divide
+                SetVehicleHandlingFloat(vehicle, 'CHandlingData', field, getDefaultHandling(vehicle, field) / value[1])
+                break;
+        }
         console.log(`${field} is now ${GetVehicleHandlingFloat(vehicle, 'CHandlingData', field)}`)
     }
 
