@@ -24,6 +24,30 @@ RegisterCommand('vehaud', (source, args) => {
 });
 
 
+RegisterCommand('wheelsize', (source, args) => {
+    veh = GetVehiclePedIsIn(PLAYER_PED(), false)
+    size = parseFloat(args[0])
+    SetVehicleWheelSize(veh, (size * 2) - 0.05)
+    // SetVehicleWheelSize(veh, size * 2)
+    wheels = GetVehicleNumberOfWheels(veh)
+    for (let i = 0; i < wheels; i++) {
+        console.log(i)
+        SetVehicleWheelTireColliderSize(veh, i, size)
+        SetVehicleWheelRimColliderSize(veh, i, size)
+    }
+});
+
+RegisterCommand('wheelwidth', (source, args) => {
+    veh = GetVehiclePedIsIn(PLAYER_PED(), false)
+    size = parseFloat(args[0])
+    SetVehicleWheelWidth(veh, size)
+    // SetVehicleWheelSize(veh, size * 2)
+    wheels = GetVehicleNumberOfWheels(veh)
+    for (let i = 0; i < wheels; i++) {
+        console.log(i)
+        SetVehicleWheelTireColliderWidth(veh, i, size / 2)
+    }
+});
 
 
 // runningWheelTest = false
