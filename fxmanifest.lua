@@ -7,7 +7,8 @@ version '0.1.0+24.4.13_01'
 
 -- Pre-emptively defining twiliCore as a dependency
 dependencies {
-    'twiliCore'
+    'twiliCore',
+    'twiliDebug'
 }
 
 client_scripts {
