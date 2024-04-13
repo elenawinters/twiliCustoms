@@ -19,6 +19,7 @@ client_scripts {
 
     'client/sim/c_air_control.js',
     'client/sim/c_brake_discs.js',
+    'client/sim/nitro/*',
 }
 
 

@@ -30,7 +30,10 @@ let temps = {}
 RequestNamedPtfxAsset("core");
 exports.twiliDebug.selInvoke("toggle", true)
 const brake_disc_thread = setTick(async () => {
-    const entity = GetVehiclePedIsIn(PLAYER_PED());
+    if (!IsPedInAnyVehicle(PlayerPedId())) { return; }
+    const entity = GetVehiclePedIsIn(PlayerPedId())
+    if (GetPedInVehicleSeat(entity, -1) != PlayerPedId()) { return; }
+    // const entity = GetVehiclePedIsIn(PLAYER_PED());
     const valid_bones = GetValidWheelBonesIndexed(entity)
     // console.log(entity)
     // Object.values(GetGamePool('CVehicle')).forEach((entity) => {

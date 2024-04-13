@@ -7,7 +7,7 @@ const air_control_thread = setTick(async () => {
     if (GetPedInVehicleSeat(veh, -1) != PlayerPedId()) { return; }
     if (!DoesEntityExist(veh) && IsEntityDead(veh)) { return; }
     const model = GetEntityModel(veh)
-    if (!IsEntityInAir(veh)) { return; }
+    // if (!IsEntityInAir(veh)) { return; }
     if (IsVehicleOnAllWheels(veh)) { return; }
     let compressions = []
     for (let i = 0; i < GetVehicleNumberOfWheels(veh); i++) {
