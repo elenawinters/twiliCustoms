@@ -40,8 +40,10 @@ function runNitrous() {
             // TriggerServerEvent('nitro:__sync', false, false, true)
         }
 
+        if (vehicle == 0) { return; }
+
         let isBoosting = false;
-        if (!IsVehicleStopped(vehicle) && vehicle != 0 && driver == player) {
+        if (!IsVehicleStopped(vehicle) && driver == player) {
             executeBoost(vehicle)
             isBoosting = true
             // boostPTFX(vehicle)
@@ -50,11 +52,11 @@ function runNitrous() {
         const isDriving = IsControlPressed(0, 71);
         const isRunning = GetIsVehicleEngineRunning(vehicle)
         // const isBoosting = IsVehicleNitroBoostEnabled(vehicle)
-        const isPurging = IsVehicleNitroPurgeEnabled(vehicle)
+        // const isPurging = IsVehicleNitroPurgeEnabled(vehicle)
 
         if (isRunning && isDriving && isBoosting) {
-            SetVehicleNitroBoostEnabled(vehicle, true)
-            SetVehicleNitroPurgeEnabled(vehicle, false)
+            // SetVehicleNitroBoostEnabled(vehicle, true)
+            // SetVehicleNitroPurgeEnabled(vehicle, false)
         } 
         else if (isRunning && isDriving && !isBoosting) {
             SetVehicleNitroBoostEnabled(vehicle, false)
@@ -75,7 +77,7 @@ function executeBoost(vehicle) {
     const multiplier = 2.0 * maximumSpeed / currentSpeed
 
     SetVehicleEngineTorqueMultiplier(vehicle, multiplier)
-    console.log('boosting')
+    // console.log('boosting')
 }
 
 function executePurge(vehicle) {

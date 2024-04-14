@@ -1,3 +1,5 @@
+
+
 function SetVehicleNitroBoostEnabled(vehicle, enabled) {
     if (IsVehicleNitroBoostEnabled(vehicle) == enabled) {
         return
