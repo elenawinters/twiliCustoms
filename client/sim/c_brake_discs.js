@@ -28,7 +28,7 @@ const default_temp = 40;
 let temps = {}
 
 RequestNamedPtfxAsset("core");
-exports.twiliDebug.selInvoke("toggle", true)
+// exports.twiliDebug.selInvoke("toggle", true)
 const brake_disc_thread = setTick(async () => {
     if (!IsPedInAnyVehicle(PlayerPedId())) { return; }
     const entity = GetVehiclePedIsIn(PlayerPedId())
@@ -128,13 +128,13 @@ const brake_disc_thread = setTick(async () => {
 
     }
     // exports.twiliDebug
-    exports.twiliDebug.selInvoke("updateText", {
-        ["twdebug2"]: ([`
-            <div class='tooltip2'><span class='tooltip2-text'>
-                ${wheelp}
-            </span></div>
-        `])
-    })
+    // exports.twiliDebug.selInvoke("updateText", {
+    //     ["twdebug2"]: ([`
+    //         <div class='tooltip2'><span class='tooltip2-text'>
+    //             ${wheelp}
+    //         </span></div>
+    //     `])
+    // })
     // });
 });
 
@@ -160,14 +160,3 @@ const brake_disc_thread = setTick(async () => {
 //     }
 //     Delay(3)
 // });
-
-
-
-
-RegisterCommand('bones', (source, args) => {
-    const [w1, w2, wp] = GetWeatherTypeTransition()
-    // const [w1, w2, wp] = args
-    SetWeatherTypeTransition(GetHashKey(w1), GetHashKey(w2), 0.95)
-    allowUpcomingChange = true
-    // SetTransitionTimecycleModifier(GetHashKey(w2), 0)
-});

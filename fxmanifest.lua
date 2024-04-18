@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Elena Winters'
 description 'Forza style car customization inside of FiveM.'
-version '0.1.0+24.4.13_01'
+version '0.1.0+24.4.18_01'
 
 -- Pre-emptively defining twiliCore as a dependency
 dependencies {
@@ -19,6 +19,7 @@ client_scripts {
 
     'client/sim/c_air_control.js',
     'client/sim/c_brake_discs.js',
+    'client/sim/c_wheel_break.js',
     'client/sim/nitro/*',
 }
 

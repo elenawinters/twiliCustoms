@@ -1,6 +1,5 @@
 // This thread blocks air control
 
-
 const air_control_thread = setTick(async () => {
     if (!IsPedInAnyVehicle(PlayerPedId())) { return; }
     const veh = GetVehiclePedIsIn(PlayerPedId(), false)
@@ -15,9 +14,10 @@ const air_control_thread = setTick(async () => {
     }
     // console.log(compressions)
     if (compressions.some((e) => e !== false)) { return; }
-    if (IsThisModelABoat(model) || IsThisModelAHeli(model) || 
-        IsThisModelAPlane(model) || IsThisModelABike(model) || 
-        IsThisModelABicycle(model)) { return; }
+    // if (IsThisModelABoat(model) || IsThisModelAHeli(model) || 
+    //     IsThisModelAPlane(model) || IsThisModelABike(model) || 
+    //     IsThisModelABicycle(model)) { return; }
+    if (!IsThisModelACar(model)) { return; }
     DisableControlAction(0, 59) // leaning left/right
     DisableControlAction(0, 60) // leaning up/down
 });
