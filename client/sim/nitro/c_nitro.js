@@ -54,15 +54,15 @@ function runNitrous() {
         // const isBoosting = IsVehicleNitroBoostEnabled(vehicle)
         // const isPurging = IsVehicleNitroPurgeEnabled(vehicle)
 
-        if (isRunning && isDriving && isBoosting) {
-            // SetVehicleNitroBoostEnabled(vehicle, true)
-            // SetVehicleNitroPurgeEnabled(vehicle, false)
-        } 
-        else if (isRunning && isDriving && !isBoosting) {
-            SetVehicleNitroBoostEnabled(vehicle, false)
-            SetVehicleNitroPurgeEnabled(vehicle, true)
-            SetVehicleNitroEnabled(vehicle, false)
-        }
+        // if (isRunning && isDriving && isBoosting) {
+        //     // SetVehicleNitroBoostEnabled(vehicle, true)
+        //     // SetVehicleNitroPurgeEnabled(vehicle, false)
+        // } 
+        // else if (isRunning && isDriving && !isBoosting) {
+        //     SetVehicleNitroBoostEnabled(vehicle, false)
+        //     SetVehicleNitroPurgeEnabled(vehicle, true)
+        //     SetVehicleNitroEnabled(vehicle, false)
+        // }
 
         // UseParticleFxAssetNextCall('core')
         
