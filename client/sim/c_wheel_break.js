@@ -6,11 +6,14 @@ let compression_limit = 10.0
 let compression_multiplier = 1.0
 
 
+
+
 exports.twiliDebug.selInvoke("toggle", true)
 const wheel_brake_thread = setTick(async () => {
     if (!IsPedInAnyVehicle(PlayerPedId())) { return; }
     const entity = GetVehiclePedIsIn(PlayerPedId())
     if (GetPedInVehicleSeat(entity, -1) != PlayerPedId()) { return; }
+    const model = GetEntityModel(entity)
     
     let wheelp = ''
     const wheels = GetVehicleNumberOfWheels(entity);
@@ -31,7 +34,8 @@ const wheel_brake_thread = setTick(async () => {
         weaken_suspension = true
         // console.log('Fuck the suspension')
 
-        if (compression < compression_limit * 5) { continue; }
+        if (!IsThisModelACar(model) || compression < compression_limit * 5) { continue; }
+        // if (!IsThisModelACar(model)) { continue; }
         BreakOffVehicleWheel(entity, i, false, false, true, false)
     }
 
@@ -44,8 +48,17 @@ const wheel_brake_thread = setTick(async () => {
             // 'fSuspensionForce': [1, 0.1, 100, 'ge'],
             'fSuspensionCompDamp': [1, -decay_factor, 0.25, 'le'],
             'fSuspensionReboundDamp': [1, -decay_factor, 0.4, 'le'],
-            'fSteeringLock': [1, decay_factor * 10, fSteeringLockDefault * 1.75, 'ge'],
         }, false)
+
+        if (IsThisModelACar(model)) {
+            updateHandlingFields(entity, {
+                'fSteeringLock': [1, decay_factor * 10, fSteeringLockDefault * 1.75, 'ge']
+            }, false)
+        } else {
+            updateHandlingFields(entity, {
+                'fSteeringLock': [1, -(decay_factor * 10), fSteeringLockDefault / 1.75, 'le']
+            }, false)
+        }
 
         // PlaySound(61, "ent_amb_elec_crackle", 0, 0, 0, 1);
     }
